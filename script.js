@@ -152,3 +152,75 @@ recipe3.averageRating = getAverageRating(recipe3.ratings);
 recipe3.totalIngredients = getTotalIngredients(recipe3.ingredients)
 recipe3.difficultyLevel = getDifficultyLevel(recipe3.cookingTime)
 
+
+
+// Quiz Game Implementation this is just recap practice of arrays and objects
+// 1. Create the questions array
+const questions = [
+    {
+        category: "JavaScript",
+        question: "Which of the following is NOT a JavaScript data type?",
+        choices: ["String", "Boolean", "StyleSheet"],
+        answer: "StyleSheet"
+    },
+    {
+        category: "HTML",
+        question: "Which tag is used to create a hyperlink in HTML?",
+        choices: ["<link>", "<a>", "<href>"],
+        answer: "<a>"
+    },
+    {
+        category: "CSS",
+        question: "Which property is used to change text color in CSS?",
+        choices: ["color", "font-color", "text-style"],
+        answer: "color"
+    },
+    {
+        category: "Programming",
+        question: "Which symbol is used for comments in JavaScript?",
+        choices: ["//", "/* */", "<!-- -->"],
+        answer: "//"
+    },
+    {
+        category: "Web Development",
+        question: "What does HTML stand for?",
+        choices: [
+            "Hyper Trainer Markup Language",
+            "Hyper Text Markup Language",
+            "Hyper Tool Multi Language"
+        ],
+        answer: "Hyper Text Markup Language"
+    }
+];
+
+// 2. Function to get a random question
+function getRandomQuestion(questions) {
+    const randomIndex = Math.floor(Math.random() * questions.length);
+    return questions[randomIndex];
+}
+
+// 3. Function to get a random choice for computer
+function getRandomComputerChoice(choices) {
+    const randomIndex = Math.floor(Math.random() * choices.length);
+    return choices[randomIndex];
+}
+
+// 4. Function to check results
+function getResults(questionObj, computerChoice) {
+    if (computerChoice === questionObj.answer) {
+        return "The computer's choice is correct!";
+    } else {
+        return `The computer's choice is wrong. The correct answer is: ${questionObj.answer}`;
+    }
+}
+
+// Example Run:
+const randomQ = getRandomQuestion(questions);
+const computerChoice = getRandomComputerChoice(randomQ.choices);
+console.log("Category:", randomQ.category);
+console.log("Question:", randomQ.question);
+console.log("Choices:", randomQ.choices);
+console.log("Computer's choice:", computerChoice);
+console.log(getResults(randomQ, computerChoice));
+
+
